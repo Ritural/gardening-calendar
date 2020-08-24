@@ -1,0 +1,43 @@
+@use '../../Core' as *;
+
+// ============
+// $TABLE
+// ============
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &, th, td {
+    border: 0 solid white; // turn off browser default border widths and initialise our default style and colour
+  }
+
+  th {
+    font-size: 14px;
+    padding: 12px 24px;
+    text-align: left;
+    background-color: grey;
+    &:not(:first-child) { border-left-width: 1px; }
+    &:empty::before { content: '\00a0'; }
+  }
+
+  td {
+    padding: 12px 24px;
+    border-top-width: 1px;
+    &:not(:first-child) { border-left-width: 1px; }
+  }
+}
+
+// Responsive table ============
+.Table--scroll {
+  display: block;
+  overflow-x: scroll;
+  max-width: 100%;
+}
+
+// Non-collapsing mobile tables ============
+// .Table--nowrap-mobile {
+//   @media #{$mobile-only} {
+//     white-space: nowrap;
+//   }
+// }

@@ -1,0 +1,136 @@
+@use './Utilities/FluidType' as *;
+@use './BreakpointVars' as *;
+
+///////////////////////////////////////////
+// Base definition of our font variables //
+///////////////////////////////////////////
+
+$base-line-height: 1.5;
+$base-font-size: 16px;
+$base-font--bold: "Muli Bold";
+$base-font--light: "Muli Light";
+$base-font--regular: "Muli Regular";
+$base-font--header: "Toitu Light";
+
+// =====================
+// Font Mixins
+// =====================
+// These mixins are just to bundle up code snippets – instead of extending, you can use these to add
+// common styles without having a relationship created. Also, you can use different Mixins at different breakpoints.
+//
+// Feel free to adjust/rename as required. We will use these to setup our generic type styles in the next section.
+
+@mixin font-light {
+  font-family: $base-font--light, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin font-regular {
+  font-family: $base-font--regular, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin font-bold {
+  font-family: $base-font--bold, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin font-header {
+  font-family: $base-font--header, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+// =====================
+// Typography Mixins
+// =====================
+
+// These are for incorporating our type styles anywhere we want – placing these in mixins means we can use them to tailor other text elements to predefined styles
+
+@mixin h1 {
+  @include font-header();
+  @include fluidType--size(32px, 48px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(40px, 56px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin h2 {
+  @include font-header();
+  @include fluidType--size(24px, 32px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(32px, 40px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin h3 {
+  @include font-bold();
+  @include fluidType--size(20px, 24px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(28px, 32px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin h4() {
+  @include font-bold();
+  @include fluidType--size(16px, 20px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(24px, 28px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin h5() {
+  @include font-bold();
+  @include fluidType--size(16px, 20px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(24px, 28px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin h6() {
+  @include font-bold();
+  @include fluidType--size(16px, 20px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(24px, 28px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin p() {
+  @include font-regular();
+  @include fluidType--size(16px, 20px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(24px, 28px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin p--alt() {
+  @include font-regular();
+  @include fluidType--size(14px, 16px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(16px, 24px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+@mixin p--small() {
+  @include font-regular();
+  @include fluidType--size(12px, 20px, $breakpoint-base, $breakpoint-xxl);
+  @include fluidType--lineHeight(14px, 22px, $breakpoint-base, $breakpoint-xxl);
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+// =====================
+// Margin Mixin
+// =====================
+
+// This is purely for creating vertical rhythm on typography if you want to use it
+$base: 16 * ($base-font-size / 100);
+$leading: $base * $base-line-height;
+
+@mixin type-margin-bottom($number) {
+  margin-bottom: #{$number * $leading + 'px'};
+  margin-bottom: #{$number * $line-height + 'rem'};
+}

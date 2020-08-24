@@ -1,0 +1,61 @@
+// ==========================================
+// $Fluid Type
+// ==========================================
+// see: https://css-tricks.com/books/fundamental-css-tactics/scale-typography-screen-size/
+// The idea is that you set the bounds/breakpoints of when the values scale
+//
+// Caveat is min-breakpoint needs to at least be 1px so if it's not compiling then that's your problem
+// You can put in breakpoints that match the project with the following (set in Breakpoints.scss)
+// $breakpoint-sm
+// $breakpoint-md
+// $breakpoint-lg
+// $breakpoint-xl
+// $breakpoint-xxl
+//
+// ==========================================
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluidType--size($min-size, $max-size, $min-breakpoint: 1px, $max-breakpoint) {
+  $u1: unit($min-breakpoint);
+  $u2: unit($max-breakpoint);
+  $u3: unit($min-size);
+  $u4: unit($max-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+
+      font-size: $min-size;
+      @media screen and (min-width: $min-breakpoint) {
+        font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)}));
+      }
+
+      @media screen and (min-width: $max-breakpoint) {
+        font-size: $max-size;
+      }
+    }
+  }
+}
+
+@mixin fluidType--lineHeight($min-size: 1px, $max-size, $min-breakpoint: 1px, $max-breakpoint) {
+  $u1: unit($min-size);
+  $u2: unit($max-size);
+  $u3: unit($min-breakpoint);
+  $u4: unit($max-breakpoint);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+
+      line-height: $min-size;
+      @media screen and (min-width: $min-breakpoint) {
+        line-height: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)}));
+      }
+
+      @media screen and (min-width: $max-breakpoint) {
+        line-height: $max-size;
+      }
+    }
+  }
+}

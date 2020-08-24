@@ -1,0 +1,36 @@
+/////////////////////////////////////
+// Breakpoints
+/////////////////////////////////////
+
+// This is based around 'mobile-first' development and design. The idea is to turn off styles as you increase in breakpoint size.
+
+$breakpoint-base: 320px;
+$breakpoint1: 480px;
+$breakpoint2: 768px;
+$breakpoint3: 1024px;
+$breakpoint4: 1280px;
+$breakpoint5: 1600px;
+
+// Following is for mixins such as Fluid Type to use
+
+$breakpoint-sm: $breakpoint1;
+$breakpoint-md: $breakpoint2;
+$breakpoint-lg: $breakpoint3;
+$breakpoint-xl: $breakpoint4;
+$breakpoint-xxl: $breakpoint5;
+
+@mixin breakpoint($breakpoint) {
+  @if ($breakpoint == sm) {
+    @media screen and (min-width: #{$breakpoint1}) { @content; }
+  } @else if ($breakpoint == md) {
+    @media screen and (min-width: #{$breakpoint2}) { @content; }
+  } @else if ($breakpoint == lg) {
+    @media screen and (min-width: #{$breakpoint3}) { @content; }
+  } @else if ($breakpoint == xl) {
+    @media screen and (min-width: #{$breakpoint4}) { @content; }
+  } @else if ($breakpoint == xxl) {
+    @media screen and (min-width: #{$breakpoint5}) { @content; }
+  }@else {
+    @media screen and (min-width: #{$breakpoint}) { @content; }
+  }
+}

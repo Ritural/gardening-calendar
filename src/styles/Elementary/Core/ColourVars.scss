@@ -1,0 +1,52 @@
+@use "sass:color";
+// ============
+// Colours
+// ============
+
+// Brand ============
+
+$blue: #003B59;
+$pastel: #B2C4CD;
+$mystic: #E5EBEE;
+$elephant: #0C3345;
+
+$mineral: #00A9A5;
+$ice: #6FD1CF;
+$wind: #B1E9E6;
+
+$green: #CBE612;
+$yellow: #ffd52d;
+$orange: #ed8b00;
+$red: #cf0025;
+$pink: #cf0059;
+$purple: #8552af;
+
+
+// Tones ============
+
+$black: #002030;
+$grey: #7F8F97;
+$white:  #fff;
+
+// Text ============
+$text:        $black;
+$link:        $blue;
+$active:      $pink;
+$highlight:   $active;
+
+// Messages ============
+$error:   $red;
+$info:    $blue;
+$success: $green;
+$warning: $orange;
+
+// Name-spacing ============
+$primary:         $white;
+$primary-light:   hsl(color.hue($primary), color.saturation($primary), 75%);
+$primary-dark:    hsl(color.hue($primary), color.saturation($primary), 25%);
+$secondary:       $blue;
+$secondary-light: hsl(color.hue($secondary), color.saturation($secondary), 75%);
+$secondary-dark:  hsl(color.hue($secondary), color.saturation($secondary), 25%);
+$tertiary:        $elephant;
+
+$borderColour: $white;

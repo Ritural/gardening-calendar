@@ -1,0 +1,115 @@
+@use '../../Core' as core;
+
+////////////////////////////////////////
+//      Global Typography styling     //
+////////////////////////////////////////
+
+// If you're looking for where we introduce fonts into our project, you're looking for `fonts.scss`
+
+
+////////////////////////////////////////////
+// Base definition of our global settings //
+////////////////////////////////////////////
+
+
+html {
+  font-size: core.$base-font-size;
+  line-height: core.$base-line-height;
+  color: core.$text;
+  // Better Font Rendering
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include core.font-light();
+}
+
+// Text highlight color
+// NOTE: must be specified individually
+::selection { background: core.$highlight; }
+::-moz-selection { background: core.$highlight; }
+
+a {
+  @include core.font-bold();
+  color: core.$link;
+  text-decoration: underline;
+
+  &:hover {
+    color: core.$active;
+  }
+}
+
+em, i { font-style: italic; }
+strong,b { @extend %font-bold !optional; }
+
+ul { list-style-type: disc; }
+ol { list-style: decimal; }
+
+sub,
+sup {
+  @extend %small !optional;
+  line-height: 0;
+}
+
+hr {
+  border: none;
+  background-color: core.$borderColour;
+  height: 1px;
+  margin: 84px 0 83px;
+}
+
+// Phone numbers ============
+// Avoid wrapping phone numbers onto multiple lines
+[href="tel"] { white-space: nowrap; }
+
+
+// =====================
+// Typography variables
+// =====================
+
+// Adjust naming of these as you see fit
+// It is suggested to have something that describes the utility that the font is being used for – here we're assuming heading font and body font are discrete use-cases
+
+
+// =====================
+// Headings
+// =====================
+
+h1, %h1 {
+  @include core.h1();
+}
+
+h2, %h2 {
+  @include core.h2();
+}
+
+h3, %h3 {
+  @include core.h3();
+}
+
+h4,
+%h4,
+h5,
+%h5,
+h6,
+%h6 {
+  @include core.h4();
+}
+
+
+// =====================
+// Body
+// =====================
+
+p, %p {
+  @include core.p();
+}
+
+p.alt {
+  @include core.p--alt();
+}
+
+p.small {
+  @include core.p--small();
+}

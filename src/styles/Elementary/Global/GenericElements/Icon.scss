@@ -1,0 +1,47 @@
+@use '../../Core' as *;
+
+$icon-lg: 48px;
+$icon-md: 32px;
+$icon-sm: 16px;
+
+.Icon {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.Icon--lg {
+  max-height: $icon-lg;
+  max-width: $icon-lg;
+
+  > svg {
+    height: $icon-lg;
+    width: $icon-lg;
+  }
+}
+
+.Icon--md {
+  height: $icon-md;
+  max-height: $icon-md;
+  max-width: $icon-md;
+  width: $icon-md;
+
+  > svg {
+    height: $icon-md;
+    width: $icon-md;
+  }
+}
+
+.Icon--sm {
+  max-height: $icon-sm;
+  max-width: $icon-sm;
+
+  > svg {
+    height: $icon-sm;
+    width: $icon-sm;
+  }
+}
+
+#root > svg {
+  display: none;
+}

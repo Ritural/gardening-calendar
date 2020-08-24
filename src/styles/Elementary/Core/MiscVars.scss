@@ -1,0 +1,37 @@
+@use '../Core/ColourVars.scss' as *;
+
+///////////////////////////////////////
+// Misc Variables
+///////////////////////////////////////
+
+// This file is for holding global variables that don't neatly fall under a specific category
+
+$borderRadius: 8px;
+
+// These are for defining  global spacing units – might not be neccessary but helps with consistency – talk to the designer to see if these will help, and whether useful in your use case
+
+$v: 24px;
+$h: $v;
+
+
+// ============
+// Z-indices
+// ============
+$z-0: 0;
+$z-10: 10;
+$z-20: 20;
+$z-30: 30;
+$z-40: 40;
+$z-50: 50;
+
+
+// ============
+// Form elements
+// ============
+$form-element-height:          40px; // button, select
+$form-element-border-colour:   rgba(black, 0.25);
+$form-element-border-width:    2px;
+$form-element-border-radius:   3px;
+$form-element-focus-color:     $active;
+$form-element-disabled-color:  transparentize(grey, 0.5);
+$form-element-padding:         48px;

@@ -1,0 +1,61 @@
+@use '../../Core' as core;
+
+///////////////////////////////
+// Container
+///////////////////////////////
+
+// Need to explain what's going on here –
+// So we are adding a little padding left and right of both sides of container to make sure content doesn't butt right up against the edges. It adds the container padding on the inside to give a little breathing room in containers. The next step is to ensure that the padding doesn't reduce the size of the breakpoint so we add it back to the breakpoint.
+
+// There is also a variation that removed the padding and just lets content hit the sides.
+
+
+$container-padding: 2.5%;
+
+%Container {
+  display: block;
+  margin: 0 auto;
+}
+
+%Container--noPadding {
+  max-width: core.$breakpoint1;
+
+  @include core.breakpoint(sm) {
+    max-width: core.$breakpoint2;
+  }
+
+  @include core.breakpoint(md) {
+    max-width: core.$breakpoint3;
+  }
+
+  @include core.breakpoint(lg) {
+    max-width: core.$breakpoint4;
+  }
+}
+
+%Container--padding {
+  padding: 0 $container-padding;
+  max-width: calc(#{core.$breakpoint1 } + (#{$container-padding} * 2));
+
+  @include core.breakpoint(sm) {
+    max-width: calc(#{core.$breakpoint2} + (#{$container-padding} * 2));
+  }
+
+  @include core.breakpoint(md) {
+    max-width: calc(#{core.$breakpoint3} + (#{$container-padding} * 2));
+  }
+
+  @include core.breakpoint(lg) {
+    max-width: calc(#{core.$breakpoint4} + (#{$container-padding} * 2));
+  }
+}
+
+.Container {
+  @extend %Container;
+  @extend %Container--padding;
+}
+
+.Container--noPadding {
+  @extend %Container;
+  @extend %Container--padding;
+}
