@@ -9,16 +9,13 @@
 
 // There is also a variation that removed the padding and just lets content hit the sides.
 
-
 $container-padding: 2.5%;
 
 %Container {
   display: block;
   margin: 0 auto;
-}
-
-%Container--noPadding {
   max-width: core.$breakpoint1;
+  padding: 0 $container-padding;
 
   @include core.breakpoint(sm) {
     max-width: core.$breakpoint2;
@@ -33,29 +30,6 @@ $container-padding: 2.5%;
   }
 }
 
-%Container--padding {
-  padding: 0 $container-padding;
-  max-width: calc(#{core.$breakpoint1 } + (#{$container-padding} * 2));
-
-  @include core.breakpoint(sm) {
-    max-width: calc(#{core.$breakpoint2} + (#{$container-padding} * 2));
-  }
-
-  @include core.breakpoint(md) {
-    max-width: calc(#{core.$breakpoint3} + (#{$container-padding} * 2));
-  }
-
-  @include core.breakpoint(lg) {
-    max-width: calc(#{core.$breakpoint4} + (#{$container-padding} * 2));
-  }
-}
-
 .Container {
   @extend %Container;
-  @extend %Container--padding;
-}
-
-.Container--noPadding {
-  @extend %Container;
-  @extend %Container--padding;
 }
