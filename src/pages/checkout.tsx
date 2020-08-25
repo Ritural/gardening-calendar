@@ -1,13 +1,9 @@
-import React from "react";
-
-import { Header } from "../components/Header/Header";
+import React from 'react';
 
 export default function Checkout() {
   return (
-    <main className="Checkout">
-      <Header />
-
+    <div className="Checkout">
       <h1>Checkout</h1>
-    </main>
+    </div>
   );
 }
