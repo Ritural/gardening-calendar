@@ -1,17 +1,41 @@
 // =============================
 // Header
 // =============================
+@use 'styles/Elementary/Core' as core;
+@use 'styles/Elementary/Global/Layout/Container' as container;
 
 .Header {
-  height: 80px;
-  background-color: white;
-  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.Header-logo,
+.Header-logo-image {
+  height: 64px;
+  width: 64px;
+
+  @include core.breakpoint(xl) {
+    height: 128px;
+    width: 128px;
+  }
 }
 
 .Header-nav {
+  display: flex;
+  align-items: center;
 }
 
 .Header-link {
+  margin-right: 16px;
+  text-decoration: none;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
   &.isActive {
+    text-decoration: underline;
   }
 }
