@@ -4,14 +4,16 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 const path = require('path');
-const appVersion = require('./package.json').version;
+const { version } = require('./package.json');
 
 module.exports = {
   siteMetadata: {
-    // title,
-    // description: "",
-    // author: "",
-    appVersion,
+    title: 'Sales Playground',
+    description:
+      'A boilerplate to start a Gatsby, React, SCSS, and Typescript project.',
+    author: '',
+    siteUrl: 'https://@TODO',
+    version,
   },
   plugins: [
     'gatsby-alias-imports',
