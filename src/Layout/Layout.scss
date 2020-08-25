@@ -1,0 +1,8 @@
+// =============================
+// Layout
+// =============================
+@use 'styles/Elementary/Global/Layout/Container' as container;
+
+.Layout {
+  @extend %Container;
+}
